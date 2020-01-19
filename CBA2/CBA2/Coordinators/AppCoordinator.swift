@@ -31,7 +31,17 @@ class AppCoordinator: BookCordinator {
 		self.window.makeKeyAndVisible()
 	}
 	
-	func coordinateToAddBook() {}
+	func coordinateToAddBook() {
+		let api = DefaultBooksDatabse(database: self.coreDatabase)
+		let newBookViewController = NewBookViewController.init(nibName: "NewBookViewController", bundle: nil)
+		newBookViewController.viewModel = DefaultNewBookViewModel(store: dataStore, repo: api, coordinator: self)
+		newBookViewController.viewModel.newBookAdded.listen {[weak self] added in
+			if added {
+				self?.navigation.popViewController(animated: true)
+			}
+		}
+		self.navigation.pushViewController(newBookViewController, animated: true)
+	}
 }
 
 protocol BookCordinator {
