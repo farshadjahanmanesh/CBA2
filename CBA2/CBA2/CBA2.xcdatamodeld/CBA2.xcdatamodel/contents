@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Book" representedClassName="CDBook" syncable="YES" codeGenerationType="class">
+        <attribute name="author" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="bookmarkPage" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="coverAddress" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="numberOfPages" attributeType="Integer 32" minValueString="1" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="otherInfo" optional="YES" attributeType="String"/>
+        <relationship name="readingTracks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="ReadingTrack"/>
+    </entity>
+    <entity name="ReadingTrack" representedClassName="CDReadingTrack" syncable="YES" codeGenerationType="class">
+        <attribute name="endAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startAt" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Book"/>
+    </entity>
+    <elements>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="ReadingTrack" positionX="-54" positionY="-9" width="128" height="88"/>
+    </elements>
 </model>

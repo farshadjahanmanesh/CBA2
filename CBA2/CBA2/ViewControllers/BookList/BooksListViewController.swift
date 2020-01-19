@@ -19,7 +19,6 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 			self.collectionView.dataSource = self
 			self.collectionView.delegate = self
 			(self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: headerHeight)
-
 		}
 	}
 
@@ -64,9 +63,9 @@ extension BooksListViewController: UICollectionViewDataSource, UICollectionViewD
 		return cell
 	}
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		guard
-			let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CurrentBookCollectionReusableView", for: indexPath) as? CurrentBookCollectionReusableView, let model = self.viewModel.bookList.value.last else {
-				return UICollectionReusableView()
+		let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CurrentBookCollectionReusableView", for: indexPath)
+		guard let headerView = header as? CurrentBookCollectionReusableView, let model = self.viewModel.bookList.value.last else {
+				return header
 		}
 		headerView.fill(model)
 		headerView.frame.size.height = headerHeight
@@ -79,5 +78,10 @@ extension BooksListViewController: UICollectionViewDataSource, UICollectionViewD
 		var width = self.collectionView.frame.width / 2
 		width -= 2
 		return .init(width:  width , height: (width + (width * 0.75)))
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let book = self.viewModel.bookList.value[indexPath.row]
+		self.viewModel.showToDetails(of: book)
 	}
 }

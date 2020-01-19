@@ -11,9 +11,9 @@ protocol BookListViewModel {
 	var bookList: Live<[BookModel]> {get}
 	func refreshBookList()
 	func navigateNewBook()
+	func showToDetails(of book: BookModel)
 }
 class DefaultBookListViewModel: ViewModel, BookListViewModel {
-	
 	var bookList: Live<[BookModel]> = .init(value: [])
 	private let repo: BooksApi
 	private let coordinator: BookCordinator
@@ -33,5 +33,9 @@ class DefaultBookListViewModel: ViewModel, BookListViewModel {
 	
 	func navigateNewBook() {
 		self.coordinator.coordinateToAddBook()
+	}
+	
+	func showToDetails(of book: BookModel) {
+		self.coordinator.coordinateToDetails(of: book)
 	}
 }
