@@ -27,6 +27,7 @@
 		87AFCC6023D4EEA200791BA2 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4F23D4EEA200791BA2 /* UIView+Ext.swift */; };
 		87AFCC6123D4EEA200791BA2 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC5123D4EEA200791BA2 /* ImageCacher.swift */; };
 		87AFCC6223D4EEA200791BA2 /* ImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC5223D4EEA200791BA2 /* ImageView+Ext.swift */; };
+		87AFCC6523D4F09600791BA2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC6423D4F09600791BA2 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		87AFCC4F23D4EEA200791BA2 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		87AFCC5123D4EEA200791BA2 /* ImageCacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		87AFCC5223D4EEA200791BA2 /* ImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Ext.swift"; sourceTree = "<group>"; };
+		87AFCC6423D4F09600791BA2 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				87AFCC3D23D4EEA200791BA2 /* Core */,
+				87AFCC6323D4F09600791BA2 /* Coordinators */,
 				87AFCC2623D4EDA300791BA2 /* AppDelegate.swift */,
 				87AFCC3223D4EDA400791BA2 /* Assets.xcassets */,
 				87AFCC3423D4EDA400791BA2 /* LaunchScreen.storyboard */,
@@ -155,6 +158,15 @@
 				87AFCC5223D4EEA200791BA2 /* ImageView+Ext.swift */,
 			);
 			path = ImageCacher;
+			sourceTree = "<group>";
+		};
+		87AFCC6323D4F09600791BA2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				87AFCC6423D4F09600791BA2 /* AppCoordinator.swift */,
+			);
+			name = Coordinators;
+			path = "../../../../CafeBazar 2/CBA2/CBA2/Coordinators";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +254,7 @@
 				87AFCC3123D4EDA300791BA2 /* CBA2.xcdatamodeld in Sources */,
 				87AFCC5723D4EEA200791BA2 /* DataStore+Ext.swift in Sources */,
 				87AFCC5C23D4EEA200791BA2 /* UIImage+Ext.swift in Sources */,
+				87AFCC6523D4F09600791BA2 /* AppCoordinator.swift in Sources */,
 				87AFCC5D23D4EEA200791BA2 /* DirectoryPath.swift in Sources */,
 				87AFCC2723D4EDA300791BA2 /* AppDelegate.swift in Sources */,
 				87AFCC5923D4EEA200791BA2 /* LiveData.swift in Sources */,
