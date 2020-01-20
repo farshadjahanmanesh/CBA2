@@ -14,15 +14,18 @@ extension CDBook: BookModel {
 		self.name = book.name
 		self.numberOfPages = book.numberOfPages
 		self.bookmarkPage = book.bookmarkPage
+		self.isReading = book.isReading
+		self.otherInfo = book.otherInfo
+		self.totalReadSeconds = book.totalReadSeconds
 	}
 	func toLocalModel()->Book {
 		.init(
-			otherInfo: self.otherInfo,
+			id: self.id, otherInfo: self.otherInfo,
 			author : self.author,
 			coverAddress : self.coverAddress,
 			name : self.name,
 			numberOfPages : self.numberOfPages,
-			bookmarkPage : self.bookmarkPage
+			bookmarkPage : self.bookmarkPage, totalReadSeconds: self.totalReadSeconds, isReading: self.isReading
 		)
 	}
 }

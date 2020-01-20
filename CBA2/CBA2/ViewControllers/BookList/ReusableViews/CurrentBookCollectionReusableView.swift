@@ -10,10 +10,17 @@ import UIKit
 
 class CurrentBookCollectionReusableView: UICollectionReusableView, ModelFillable {
 	typealias Model = BookModel
+	
+	@IBOutlet private var titleLabel: UILabel!
+	@IBOutlet private var coverImageView: UIImageView!
+	@IBOutlet private var authorLabel: UILabel!
+	@IBOutlet private var otherInfoLabel: UILabel!
+	
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		coverImageView.superview!.dropShadow(color: .black, offSet: .init(width: 1, height: 1))
 	}
+	
 	func fill(_ model: BookModel) {
 		self.setNeedsLayout()
 		self.layoutIfNeeded()
@@ -25,16 +32,6 @@ class CurrentBookCollectionReusableView: UICollectionReusableView, ModelFillable
 		authorLabel.text = model.author
 		otherInfoLabel.text = model.otherInfo
 	}
-	@IBOutlet var titleLabel: UILabel!
-	@IBOutlet var coverImageView: UIImageView!
-	@IBOutlet var authorLabel: UILabel!
-	@IBOutlet var otherInfoLabel: UILabel!
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		// Initialization code
-		
-	}
-	
 }
 extension URL {
 	static var documentsDirectory: URL {

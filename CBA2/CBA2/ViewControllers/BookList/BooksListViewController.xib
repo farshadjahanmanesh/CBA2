@@ -23,8 +23,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrH-r8-lw9">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add a new book by pressing '+' button." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvD-sK-2e8">
+                            <rect key="frame" x="32" y="368" width="350" height="82"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-B0-rfg">
-                            <rect key="frame" x="8" y="8" width="398" height="802"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Det-Rj-R61">
                                 <size key="itemSize" width="50" height="50"/>
@@ -60,12 +66,16 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="Oxq-B0-rfg" firstAttribute="top" secondItem="yrH-r8-lw9" secondAttribute="top" constant="8" id="4v7-lB-BhA"/>
+                        <constraint firstAttribute="trailing" secondItem="kvD-sK-2e8" secondAttribute="trailing" constant="32" id="3xm-VB-hN7"/>
+                        <constraint firstItem="Oxq-B0-rfg" firstAttribute="top" secondItem="yrH-r8-lw9" secondAttribute="top" id="4v7-lB-BhA"/>
                         <constraint firstItem="p9E-20-H5R" firstAttribute="bottom" secondItem="yrH-r8-lw9" secondAttribute="bottomMargin" id="68Y-4T-6cV"/>
-                        <constraint firstAttribute="trailing" secondItem="Oxq-B0-rfg" secondAttribute="trailing" constant="8" id="JSF-Dk-Mxe"/>
+                        <constraint firstItem="kvD-sK-2e8" firstAttribute="leading" secondItem="yrH-r8-lw9" secondAttribute="leading" constant="32" id="BUo-Oj-bsY"/>
+                        <constraint firstAttribute="trailing" secondItem="Oxq-B0-rfg" secondAttribute="trailing" id="JSF-Dk-Mxe"/>
+                        <constraint firstItem="kvD-sK-2e8" firstAttribute="centerX" secondItem="yrH-r8-lw9" secondAttribute="centerX" id="QA0-pk-6ER"/>
                         <constraint firstItem="p9E-20-H5R" firstAttribute="trailing" secondItem="yrH-r8-lw9" secondAttribute="trailingMargin" id="QL7-G5-xtb"/>
-                        <constraint firstItem="Oxq-B0-rfg" firstAttribute="leading" secondItem="yrH-r8-lw9" secondAttribute="leading" constant="8" id="bIu-yk-9NH"/>
-                        <constraint firstAttribute="bottom" secondItem="Oxq-B0-rfg" secondAttribute="bottom" constant="8" id="lDx-N8-g0F"/>
+                        <constraint firstItem="Oxq-B0-rfg" firstAttribute="leading" secondItem="yrH-r8-lw9" secondAttribute="leading" id="bIu-yk-9NH"/>
+                        <constraint firstItem="kvD-sK-2e8" firstAttribute="centerY" secondItem="yrH-r8-lw9" secondAttribute="centerY" id="kB0-IT-HNI"/>
+                        <constraint firstAttribute="bottom" secondItem="Oxq-B0-rfg" secondAttribute="bottom" id="lDx-N8-g0F"/>
                     </constraints>
                 </view>
             </subviews>

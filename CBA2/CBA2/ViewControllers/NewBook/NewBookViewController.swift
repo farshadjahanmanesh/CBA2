@@ -43,6 +43,7 @@ class NewBookViewController: UIViewController, ViewModelHolder {
 	}
 	
 	private func styles() {
+		self.navigationItem.title = "Add New Book"
 		self.coverSelectorButton.imageView?.contentMode = .scaleToFill
 		self.coverSelectorButton.setImage(.plus, for: .normal)
 		self.coverSelectorButton.tintColor = .black
@@ -50,7 +51,6 @@ class NewBookViewController: UIViewController, ViewModelHolder {
 		self.coverSelectorButton.addTarget(self, action: #selector(takePhoto(_:)), for: .touchUpInside)
 		self.saveButton.addTarget(self, action: #selector(saveTheBook), for: .touchUpInside)
 	}
-
 	
 	/// very simple validation
 	private func isValidation() -> Bool{
@@ -96,11 +96,11 @@ class NewBookViewController: UIViewController, ViewModelHolder {
 		guard isValidation() else {return}
 		let imageName = "\(UUID().uuidString).png"
 		
-		let book = Book (otherInfo: otherInfoTextView.text, author : authorTextField.text!,
+		let book = Book (id: UUID(), otherInfo: otherInfoTextView.text, author : authorTextField.text!,
 						 coverAddress : imageName,
 						 name : titleTextView.text!,
 						 numberOfPages : Int32(pageCountTextField.text!) ?? 0,
-						 bookmarkPage : 1)
+						 bookmarkPage : 1, totalReadSeconds: 0, isReading: false)
 		
 		self.viewModel.add(book) { [weak self] result in
 			switch result {

@@ -10,6 +10,12 @@ import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell, ModelFillable {
 	typealias Model = BookModel
+	
+	@IBOutlet private var titleLabel: UILabel!
+	@IBOutlet private var coverImageView: UIImageView!
+	@IBOutlet private var authorLabel: UILabel!
+	@IBOutlet private var readingTimeLabel: UILabel!
+	
 	func fill(_ model: BookModel) {
 		titleLabel.text = model.name
 		if let image = model.coverAddress
@@ -17,10 +23,9 @@ class BookCollectionViewCell: UICollectionViewCell, ModelFillable {
 			coverImageView.fromDisk(image)
 		}
 		authorLabel.text = model.author
+		readingTimeLabel.text = "is read: \(Int(model.totalReadSeconds)) (s)"
 	}
-	@IBOutlet var titleLabel: UILabel!
-	@IBOutlet var coverImageView: UIImageView!
-	@IBOutlet var authorLabel: UILabel!
+
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		// Initialization code
