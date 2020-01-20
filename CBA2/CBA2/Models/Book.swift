@@ -9,19 +9,25 @@
 import Foundation
 // a contract between LocalModel and Outside one
 protocol BookModel {
-	var author: String? {get set}
-	var coverAddress: String? {get set}
-	var name: String? {get set}
-	var numberOfPages: Int32 {get set}
-	var bookmarkPage: Int32 {get set}
-	var otherInfo: String? {get set}
+	var author: String? {get}
+	var id: UUID? {get}
+	var coverAddress: String? {get}
+	var name: String? {get}
+	var numberOfPages: Int32 {get}
+	var bookmarkPage: Int32 {get}
+	var otherInfo: String? {get}
+	var totalReadSeconds: Double {get}
+	var isReading: Bool {get}
 }
 
 struct Book: BookModel {
-	var otherInfo: String?
-	var author: String?
-	var coverAddress: String?
-	var name: String?
-	var numberOfPages: Int32
-	var bookmarkPage: Int32	
+	let id: UUID?
+	let otherInfo: String?
+	let author: String?
+	let coverAddress: String?
+	let name: String?
+	let numberOfPages: Int32
+	let bookmarkPage: Int32
+	let totalReadSeconds: Double
+	let isReading: Bool
 }

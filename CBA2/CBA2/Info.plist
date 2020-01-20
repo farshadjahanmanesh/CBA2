@@ -39,5 +39,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can select photo from your library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need use your camera to take a photo of your book.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need to save the photo to your gallary.</string>
 </dict>
 </plist>

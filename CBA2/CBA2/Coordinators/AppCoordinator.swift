@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import CoreData
 class AppCoordinator: BookCordinator {
-
 	private unowned var window: UIWindow
 	private(set) var navigation: UINavigationController!
 	private var dataStore: DataStore = UserDefaultStore()
@@ -42,8 +41,16 @@ class AppCoordinator: BookCordinator {
 		}
 		self.navigation.pushViewController(newBookViewController, animated: true)
 	}
+	
+	func coordinateToDetails(of book: BookModel) {
+		let api = DefaultBooksDatabse(database: self.coreDatabase)
+		let detailsViewController = BookDetailsViewController.init(nibName: "BookDetailsViewController", bundle: nil)
+		detailsViewController.viewModel = DefaultBookDetailsViewModel(store: dataStore, repo: api, coordinator: self, book: book)
+		self.navigation.pushViewController(detailsViewController, animated: true)
+	}
 }
 
 protocol BookCordinator {
 	func coordinateToAddBook()
+	func coordinateToDetails(of book: BookModel)
 }

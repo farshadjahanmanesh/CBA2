@@ -18,16 +18,22 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 			self.collectionView.register(UINib(nibName: "BookCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BookCollectionViewCell")
 			self.collectionView.dataSource = self
 			self.collectionView.delegate = self
-			(self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: headerHeight)
-
 		}
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		styles()
 		binding()
 	}
-	
+	private func hasActiveBook() {
+		guard let flow =  self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {return}
+		if self.viewModel.bookList.value.first(where: {$0.isReading }) != nil {
+			flow.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: headerHeight)
+		} else {
+			flow.headerReferenceSize = CGSize(width: 0, height: 0)
+		}
+	}
 	private func styles() {
 		self.navigationItem.title = "Library"
 	}
@@ -35,7 +41,9 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 	private func binding() {
 		self.addNewBookButton.addTarget(self, action: #selector(addNewBook), for: .touchUpInside)
 		self.viewModel.bookList
-			.listen { [weak self] (bookist) in
+			.listen { [weak self] (bookList) in
+				self?.collectionView.isHidden = bookList.isEmpty
+				self?.hasActiveBook()
 				self?.collectionView.reloadData()
 			}
 	}
@@ -47,6 +55,12 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 	@objc
 	private func addNewBook() {
 		viewModel.navigateNewBook()
+	}
+	
+	@objc
+	fileprivate func goToActiveBook() {
+		guard let book = self.viewModel.bookList.value.first(where: {$0.isReading}) else {return}
+		self.viewModel.showToDetails(of: book)
 	}
 }
 
@@ -63,15 +77,20 @@ extension BooksListViewController: UICollectionViewDataSource, UICollectionViewD
 		cell.fill(self.viewModel.bookList.value[indexPath.row])
 		return cell
 	}
+	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		guard
-			let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CurrentBookCollectionReusableView", for: indexPath) as? CurrentBookCollectionReusableView, let model = self.viewModel.bookList.value.last else {
-				return UICollectionReusableView()
+		let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CurrentBookCollectionReusableView", for: indexPath)
+		guard let headerView = header as? CurrentBookCollectionReusableView, let model = self.viewModel.bookList.value.first(where: {$0.isReading}) else {
+				return header
 		}
 		headerView.fill(model)
 		headerView.frame.size.height = headerHeight
+		let tap  = UITapGestureRecognizer(target: self, action: #selector(self.goToActiveBook))
+		headerView.gestureRecognizers = nil
+		headerView.addGestureRecognizer(tap)
 		return headerView
 	}
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return .leastNonzeroMagnitude
 	}
@@ -80,4 +99,10 @@ extension BooksListViewController: UICollectionViewDataSource, UICollectionViewD
 		width -= 2
 		return .init(width:  width , height: (width + (width * 0.75)))
 	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let book = self.viewModel.bookList.value[indexPath.row]
+		self.viewModel.showToDetails(of: book)
+	}
+	
 }
