@@ -19,18 +19,20 @@ protocol BookDetailsViewModel {
 class DefaultBookDetailsViewModel: ViewModel, BookDetailsViewModel {
 	private let repo: BooksApi
 	var book: BookModel
-	var readingTime: Live<Int> = .init(value: 0)
-	var isReading: Live<Bool> = .init(value: false)
+	var readingTime: Live<Int> = .init(startWith: 0)
+	var isReading: Live<Bool> = .init(startWith: false)
 	private var timer: Timer?
-	init(store: DataStore,repo:BooksApi,  coordinator: BookCordinator, book: BookModel) {
+	
+	init(repo:BooksApi,  coordinator: BookCordinator, book: BookModel) {
 		self.repo = repo
 		self.book = book
 		isReading.value = book.isReading
 		readingTime.value = Int(repo.isCurrentlyReading(book) ?? 0)
 		if book.isReading {
-			 startTimer()
+			startTimer()
 		}
 	}
+	
 	private func startTimer() {
 		guard timer == nil else {return}
 		timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] _ in
@@ -38,6 +40,7 @@ class DefaultBookDetailsViewModel: ViewModel, BookDetailsViewModel {
 			self.readingTime.value = self.readingTime.value + 1
 		})
 	}
+	
 	func startReading() {
 		startTimer()
 		self.isReading.value = true

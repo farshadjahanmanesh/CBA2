@@ -9,5 +9,4 @@
 import UIKit
 extension UIImage {
 	static let plus: UIImage = UIImage.init(named: "plus")!
-	
 }

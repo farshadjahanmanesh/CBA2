@@ -26,14 +26,7 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 		styles()
 		binding()
 	}
-	private func hasActiveBook() {
-		guard let flow =  self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {return}
-		if self.viewModel.bookList.value.first(where: {$0.isReading }) != nil {
-			flow.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: headerHeight)
-		} else {
-			flow.headerReferenceSize = CGSize(width: 0, height: 0)
-		}
-	}
+	
 	private func styles() {
 		self.navigationItem.title = "Library"
 	}
@@ -54,7 +47,7 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 	}
 	@objc
 	private func addNewBook() {
-		viewModel.navigateNewBook()
+		viewModel.createNewBook()
 	}
 	
 	@objc
@@ -62,9 +55,20 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 		guard let book = self.viewModel.bookList.value.first(where: {$0.isReading}) else {return}
 		self.viewModel.showToDetails(of: book)
 	}
+	
+	// resets collectionview header
+	private func hasActiveBook() {
+		guard let flow =  self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {return}
+		if self.viewModel.bookList.value.first(where: {$0.isReading }) != nil {
+			flow.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: headerHeight)
+		} else {
+			flow.headerReferenceSize = CGSize(width: 0, height: 0)
+		}
+	}
 }
 
 extension BooksListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		self.viewModel.bookList.value.count
 	}
