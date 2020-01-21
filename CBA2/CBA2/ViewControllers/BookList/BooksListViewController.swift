@@ -29,6 +29,7 @@ class BooksListViewController: UIViewController, ViewModelHolder {
 	
 	private func styles() {
 		self.navigationItem.title = "Library"
+		self.collectionView.contentInset = .init(top: 0, left: 0, bottom: addNewBookButton.frame.height, right: 0)
 	}
 	
 	private func binding() {
