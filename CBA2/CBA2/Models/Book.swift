@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 // a contract between LocalModel and Outside one
 protocol BookModel {
 	var author: String? {get}

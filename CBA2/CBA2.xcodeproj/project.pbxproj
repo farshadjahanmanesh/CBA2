@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8781F38323D7749100FEC2C4 /* BookCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781F38223D7749100FEC2C4 /* BookCordinator.swift */; };
+		8781F38523D7756100FEC2C4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781F38423D7756100FEC2C4 /* Errors.swift */; };
+		8781F38723D775A500FEC2C4 /* CoreDataBooksApiImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781F38623D775A500FEC2C4 /* CoreDataBooksApiImplementation.swift */; };
 		87AFCC2723D4EDA300791BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC2623D4EDA300791BA2 /* AppDelegate.swift */; };
 		87AFCC3323D4EDA400791BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87AFCC3223D4EDA400791BA2 /* Assets.xcassets */; };
 		87AFCC3623D4EDA400791BA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AFCC3423D4EDA400791BA2 /* LaunchScreen.storyboard */; };
 		87AFCC5323D4EEA200791BA2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC3F23D4EEA200791BA2 /* Database.swift */; };
-		87AFCC5423D4EEA200791BA2 /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4123D4EEA200791BA2 /* SecureStore.swift */; };
-		87AFCC5523D4EEA200791BA2 /* UserDefaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4223D4EEA200791BA2 /* UserDefaultStore.swift */; };
-		87AFCC5623D4EEA200791BA2 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4323D4EEA200791BA2 /* DataStore.swift */; };
-		87AFCC5723D4EEA200791BA2 /* DataStore+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4423D4EEA200791BA2 /* DataStore+Ext.swift */; };
-		87AFCC5823D4EEA200791BA2 /* Presistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4523D4EEA200791BA2 /* Presistent.swift */; };
 		87AFCC5923D4EEA200791BA2 /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4723D4EEA200791BA2 /* LiveData.swift */; };
 		87AFCC5A23D4EEA200791BA2 /* ViewModelHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4923D4EEA200791BA2 /* ViewModelHolder.swift */; };
 		87AFCC5B23D4EEA200791BA2 /* ModelFillable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFCC4A23D4EEA200791BA2 /* ModelFillable.swift */; };
@@ -48,17 +46,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8781F38223D7749100FEC2C4 /* BookCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCordinator.swift; sourceTree = "<group>"; };
+		8781F38423D7756100FEC2C4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8781F38623D775A500FEC2C4 /* CoreDataBooksApiImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBooksApiImplementation.swift; sourceTree = "<group>"; };
 		87AFCC2323D4EDA300791BA2 /* CBA2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBA2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AFCC2623D4EDA300791BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87AFCC3223D4EDA400791BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87AFCC3523D4EDA400791BA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87AFCC3723D4EDA400791BA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87AFCC3F23D4EEA200791BA2 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		87AFCC4123D4EEA200791BA2 /* SecureStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
-		87AFCC4223D4EEA200791BA2 /* UserDefaultStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultStore.swift; sourceTree = "<group>"; };
-		87AFCC4323D4EEA200791BA2 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		87AFCC4423D4EEA200791BA2 /* DataStore+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataStore+Ext.swift"; sourceTree = "<group>"; };
-		87AFCC4523D4EEA200791BA2 /* Presistent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presistent.swift; sourceTree = "<group>"; };
 		87AFCC4723D4EEA200791BA2 /* LiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		87AFCC4923D4EEA200791BA2 /* ViewModelHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelHolder.swift; sourceTree = "<group>"; };
 		87AFCC4A23D4EEA200791BA2 /* ModelFillable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFillable.swift; sourceTree = "<group>"; };
@@ -140,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				87AFCC3E23D4EEA200791BA2 /* Database */,
-				87AFCC4023D4EEA200791BA2 /* Utils */,
 				87AFCC4623D4EEA200791BA2 /* LiveData */,
 				87AFCC4823D4EEA200791BA2 /* Arch */,
 				87AFCC5023D4EEA200791BA2 /* ImageCacher */,
@@ -154,18 +149,6 @@
 				87AFCC3F23D4EEA200791BA2 /* Database.swift */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		87AFCC4023D4EEA200791BA2 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				87AFCC4123D4EEA200791BA2 /* SecureStore.swift */,
-				87AFCC4223D4EEA200791BA2 /* UserDefaultStore.swift */,
-				87AFCC4323D4EEA200791BA2 /* DataStore.swift */,
-				87AFCC4423D4EEA200791BA2 /* DataStore+Ext.swift */,
-				87AFCC4523D4EEA200791BA2 /* Presistent.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		87AFCC4623D4EEA200791BA2 /* LiveData */ = {
@@ -186,6 +169,7 @@
 				87AFCC4D23D4EEA200791BA2 /* UIScrollView+Ext.swift */,
 				87AFCC4E23D4EEA200791BA2 /* KeyboardHandler.swift */,
 				87AFCC4F23D4EEA200791BA2 /* UIView+Ext.swift */,
+				8781F38423D7756100FEC2C4 /* Errors.swift */,
 			);
 			path = Arch;
 			sourceTree = "<group>";
@@ -203,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				87AFCC6723D4F17900791BA2 /* BookAPI.swift */,
+				8781F38623D775A500FEC2C4 /* CoreDataBooksApiImplementation.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -261,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				87AFCC8D23D4F26F00791BA2 /* AppCoordinator.swift */,
+				8781F38223D7749100FEC2C4 /* BookCordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -369,21 +355,19 @@
 				87AFCC6123D4EEA200791BA2 /* ImageCacher.swift in Sources */,
 				87AFCC6223D4EEA200791BA2 /* ImageView+Ext.swift in Sources */,
 				87AFCC5F23D4EEA200791BA2 /* KeyboardHandler.swift in Sources */,
-				87AFCC5423D4EEA200791BA2 /* SecureStore.swift in Sources */,
 				87AFCC5E23D4EEA200791BA2 /* UIScrollView+Ext.swift in Sources */,
-				87AFCC5623D4EEA200791BA2 /* DataStore.swift in Sources */,
-				87AFCC5523D4EEA200791BA2 /* UserDefaultStore.swift in Sources */,
+				8781F38323D7749100FEC2C4 /* BookCordinator.swift in Sources */,
 				87AFCC5323D4EEA200791BA2 /* Database.swift in Sources */,
+				8781F38523D7756100FEC2C4 /* Errors.swift in Sources */,
 				87AFCC5A23D4EEA200791BA2 /* ViewModelHolder.swift in Sources */,
 				87AFCC8023D4F17900791BA2 /* BookCollectionViewCell.swift in Sources */,
 				87AFCCA023D4F79C00791BA2 /* BookDetailsViewModel.swift in Sources */,
-				87AFCC5823D4EEA200791BA2 /* Presistent.swift in Sources */,
 				87AFCC5B23D4EEA200791BA2 /* ModelFillable.swift in Sources */,
-				87AFCC5723D4EEA200791BA2 /* DataStore+Ext.swift in Sources */,
 				87AFCC7E23D4F17900791BA2 /* BooksListViewController.swift in Sources */,
 				87AFCC7F23D4F17900791BA2 /* CurrentBookCollectionReusableView.swift in Sources */,
 				87AFCC9D23D4F68D00791BA2 /* BookDetailsViewController.swift in Sources */,
 				87AFCC9923D4F51900791BA2 /* Config.swift in Sources */,
+				8781F38723D775A500FEC2C4 /* CoreDataBooksApiImplementation.swift in Sources */,
 				87AFCC5C23D4EEA200791BA2 /* UIImage+Ext.swift in Sources */,
 				87AFCC9423D4F4C200791BA2 /* NewBookViewController.swift in Sources */,
 				87AFCC5D23D4EEA200791BA2 /* DirectoryPath.swift in Sources */,

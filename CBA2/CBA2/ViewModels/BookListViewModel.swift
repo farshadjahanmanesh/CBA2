@@ -7,14 +7,19 @@
 //
 
 import Foundation
+
 protocol BookListViewModel {
+	// list of books
 	var bookList: Live<[BookModel]> {get}
+	
+	// gets new books
 	func refreshBookList()
-	func navigateNewBook()
+	func createNewBook()
 	func showToDetails(of book: BookModel)
 }
+
 class DefaultBookListViewModel: ViewModel, BookListViewModel {
-	var bookList: Live<[BookModel]> = .init(value: [])
+	var bookList: Live<[BookModel]> = .init(startWith: [])
 	private let repo: BooksApi
 	private let coordinator: BookCordinator
 	
@@ -26,12 +31,12 @@ class DefaultBookListViewModel: ViewModel, BookListViewModel {
 		}
 	}
 	
-	init(store: DataStore,repo:BooksApi,  coordinator: BookCordinator) {
+	init(repo:BooksApi,  coordinator: BookCordinator) {
 		self.repo = repo
 		self.coordinator = coordinator
 	}
 	
-	func navigateNewBook() {
+	func createNewBook() {
 		self.coordinator.coordinateToAddBook()
 	}
 	
