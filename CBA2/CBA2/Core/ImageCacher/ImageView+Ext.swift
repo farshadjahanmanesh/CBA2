@@ -23,6 +23,7 @@ extension UIImageView {
 	/// - Parameters:
 	///   - string: url string
 	///   - done: a callback that will call after image is ready
+	///	  - directory: the path to save the image, default is `.user` which points to user domain
 	func fromDisk(_ named: String, done: ((UIImage?)->Void)? = nil, directory: DirectoryPath = .user) {
 		let imageURL = URL(fileURLWithPath: directory.url.path).appendingPathComponent(named)
 		urlToLoad = imageURL

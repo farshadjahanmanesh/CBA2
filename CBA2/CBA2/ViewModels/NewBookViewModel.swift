@@ -16,6 +16,7 @@ protocol NewBookViewModel {
 class DefaultNewBookViewModel: ViewModel, NewBookViewModel {
 	private let repo: BooksApi
 	var newBookAdded: Live<Bool>
+	
 	func add(_ book: BookModel, _ then: ((Result<Void, Errors>) -> Void)?) {
 		self.repo.add(book) { [weak self] result in
 			then?(result)
@@ -23,8 +24,8 @@ class DefaultNewBookViewModel: ViewModel, NewBookViewModel {
 		}
 	}
 	
-	init(store: DataStore,repo:BooksApi,  coordinator: BookCordinator) {
+	init(repo:BooksApi,  coordinator: BookCordinator) {
 		self.repo = repo
-		newBookAdded = .init(value: true)
+		newBookAdded = .init(startWith: true)
 	}
 }
